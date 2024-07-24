@@ -32,16 +32,7 @@ export const deleteOrder = (id) => api.delete(`/orders/${id}`);
 // Users
 export const getUsers = () => api.get('/users');
 export const getUser = (id) => api.get(`/users/${id}`);
-export const createUser = (data) => api.post('/users', data);
-export const updateUser = (id, data) => api.put(`/users/${id}`, data);
 export const deleteUser = (id) => api.delete(`/users/${id}`);
-
-// Carts
-export const getCarts = () => api.get('/carts');
-export const getCart = (id) => api.get(`/carts/${id}`);
-export const createCart = (data) => api.post('/carts', data);
-export const updateCart = (id, data) => api.put(`/carts/${id}`, data);
-export const deleteCart = (id) => api.delete(`/carts/${id}`);
 
 // Payments
 export const getPayments = () => api.get('/payments');
@@ -49,3 +40,7 @@ export const getPayment = (id) => api.get(`/payments/${id}`);
 export const createPayment = (data) => api.post('/payments', data);
 export const updatePayment = (id, data) => api.put(`/payments/${id}`, data);
 export const deletePayment = (id) => api.delete(`/payments/${id}`);
+
+export const createStock = (stock) => api.post('/stocks', stock);
+export const getStock = (id) => api.get(`/stocks/${id}`);
+export const updateStock = (id, stock) => api.put(`/stocks/${id}`, stock);

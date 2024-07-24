@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { createShoe, getShoe, updateShoe } from '../services/api';
+import { createShoe, createStock, getShoe, getStock, updateShoe, updateStock } from '../services/api';
 
 const ShoeForm = () => {
-  const [shoe, setShoe] = useState({ name: '', brand: '', price: '', stocks: [], colors: '', imageUrl: '', discriptions: '' });
+  const [shoe, setShoe] = useState({ name: '', brand: '', price: '', stocks: [{ size: '', quantity: '' }], colors: '', imageUrl: '', discriptions: '' });
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchShoe = async () => {
       const response = await getShoe(id);
-      setShoe(response.data);
+      const shoeData = response.data;
+
+      if (shoeData.stocks && shoeData.stocks.length > 0) {
+        const stockResponses = await Promise.all(shoeData.stocks.map(stockId => getStock(stockId)));
+        shoeData.stocks = stockResponses.map(stockRes => stockRes.data);
+      } else {
+        shoeData.stocks = [{ size: '', quantity: '' }];
+      }
+
+      setShoe(shoeData);
     };
 
     if (id) {
@@ -41,14 +50,44 @@ const ShoeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (id) {
-      await updateShoe(id, shoe);
-    } else {
-      await createShoe(shoe);
+  
+    if (!shoe.name || !shoe.brand || isNaN(parseFloat(shoe.price)) || !shoe.colors || !shoe.imageUrl || !shoe.discriptions) {
+      console.error("Please fill out all fields correctly.");
+      return;
     }
-    navigate('/shoes');
+  
+    const updatedShoe = {
+      ...shoe,
+      price: parseFloat(shoe.price),
+      colors: shoe.colors.split(',').map(color => color.trim()),
+    };
+  
+    try {
+      const stockPromises = shoe.stocks.map(stock => {
+        if (stock._id) {
+          return updateStock(stock._id, stock);
+        } else {
+          return createStock(stock);
+        }
+      });
+  
+      const stockResponses = await Promise.all(stockPromises);
+      updatedShoe.stocks = stockResponses.map(stockRes => stockRes.data._id);
+  
+      console.log("Payload being sent to the server:", JSON.stringify(updatedShoe, null, 2));
+  
+      if (id) {
+        await updateShoe(id, updatedShoe);
+      } else {
+        await createShoe(updatedShoe);
+      }
+      navigate('/shoes');
+    } catch (error) {
+      console.error("Error updating shoe:", error.response ? error.response.data : error);
+    }
   };
-
+  
+  
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" name="name" value={shoe.name} onChange={handleChange} placeholder="Name" required />
@@ -72,3 +111,4 @@ const ShoeForm = () => {
 };
 
 export default ShoeForm;
+
