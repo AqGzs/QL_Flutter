@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { createShoe, getShoe, updateShoe } from '../services/api';
+import { getShoe, updateShoe } from '../services/api';
+// import './ShoeEdit.css'; // Tạo hoặc xóa dòng này nếu chưa có tệp CSS
 
-const ShoeForm = () => {
-  const [shoe, setShoe] = useState({ name: '', brand: '', price: '', stocks: [], colors: '', imageUrl: '', discriptions: '' });
+const ShoeEdit = () => {
   const { id } = useParams();
+  const [shoe, setShoe] = useState({ name: '', brand: '', price: '', stocks: [], colors: '', imageUrl: '', discriptions: '' });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,9 +14,7 @@ const ShoeForm = () => {
       setShoe(response.data);
     };
 
-    if (id) {
-      fetchShoe();
-    }
+    fetchShoe();
   }, [id]);
 
   const handleChange = (e) => {
@@ -41,16 +40,12 @@ const ShoeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (id) {
-      await updateShoe(id, shoe);
-    } else {
-      await createShoe(shoe);
-    }
+    await updateShoe(id, shoe);
     navigate('/shoes');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="shoe-form">
       <input type="text" name="name" value={shoe.name} onChange={handleChange} placeholder="Name" required />
       <input type="text" name="brand" value={shoe.brand} onChange={handleChange} placeholder="Brand" required />
       <input type="number" name="price" value={shoe.price} onChange={handleChange} placeholder="Price" required />
@@ -66,9 +61,9 @@ const ShoeForm = () => {
         </div>
       ))}
       <button type="button" onClick={handleAddStock}>Add Stock</button>
-      <button type="submit">Save</button>
+      <button type="submit">Update Product</button>
     </form>
   );
 };
 
-export default ShoeForm;
+export default ShoeEdit;

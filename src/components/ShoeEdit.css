@@ -1,0 +1,38 @@
+.shoe-form {
+    padding: 20px;
+  }
+  
+  .shoe-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .shoe-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .shoe-form h3 {
+    margin-top: 20px;
+  }
+  
+  .shoe-form div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .shoe-form div button {
+    background-color: #f44336;
+    padding: 5px 10px;
+  }
+  
