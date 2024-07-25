@@ -1,7 +1,5 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import CategoryForm from './components/CategoryForm';
-import CategoryList from './components/CategoryList';
 import Dashboard from './components/Dashboard';
 import Layout from './components/Layout';
 import Login from './components/Login';
@@ -25,9 +23,6 @@ function App() {
           <Route path="/shoes/new" element={<ShoeForm />} />
           <Route path="/shoes/edit/:id" element={<ShoeEdit />} />
           <Route path="/shoes/delete/:id" element={<ShoeDelete />} />
-          <Route path="/categories" element={<CategoryList />} />
-          <Route path="/categories/new" element={<CategoryForm />} />
-          <Route path="/categories/edit/:id" element={<CategoryForm />} />
           <Route path="/orders" element={<OrderList />} />
           <Route path="/orders/:id" element={<OrderDetail />} />
           <Route path="/users" element={<UserList />} />

@@ -16,7 +16,6 @@ const Layout = () => {
       <div className="container">
         <aside className="sidebar">
           <NavLink to="/shoes" className="sidebar-link" activeClassName="active">Shoes</NavLink>
-          <NavLink to="/categories" className="sidebar-link" activeClassName="active">Categories</NavLink>
           <NavLink to="/orders" className="sidebar-link" activeClassName="active">Orders</NavLink>
           <NavLink to="/users" className="sidebar-link" activeClassName="active">Users</NavLink>
         </aside>
