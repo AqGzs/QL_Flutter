@@ -35,7 +35,7 @@ const ShoeDetail = () => {
           <h1>{shoe.name}</h1>
           <p className="shoe-category">Descriptions</p>
           <p className="shoe-description">{shoe.descriptions || 'No description available.'}</p>
-          <p className="shoe-price">${shoe.price}</p>
+          <p className="shoe-price">{shoe.price}VND</p>
           <p className="shoe-stock">Stock: {totalStock}</p>
           <div className="shoe-size">
             <label htmlFor="size">Select Size:</label>

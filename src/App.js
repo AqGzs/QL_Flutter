@@ -10,6 +10,7 @@ import ShoeDetail from './components/ShoeDetail';
 import ShoeEdit from './components/ShoeEdit';
 import ShoeForm from './components/ShoeForm';
 import ShoeList from './components/ShoeList';
+import UserDetail from './components/UserDetail';
 import UserForm from './components/UserForm';
 import UserList from './components/UserList';
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/orders" element={<OrderList />} />
           <Route path="/orders/:id" element={<OrderDetail />} />
           <Route path="/users" element={<UserList />} />
+          <Route path="/users/:id" element={<UserDetail />} />
           <Route path="/users/new" element={<UserForm />} />
           <Route path="/users/edit/:id" element={<UserForm />} />
         </Route>

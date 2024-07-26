@@ -1,119 +1,59 @@
-/* UserList.css */
-
 .user-list {
-    padding: 20px;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .header h1 {
-    margin: 0;
-  }
-  
-  .add-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .add-button:hover {
-    background-color: #45a049;
-  }
-  
-  .search-bar {
-    margin-bottom: 20px;
-  }
-  
-  .search-bar input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .user-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-  .user-card {
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: box-shadow 0.3s;
-  }
-  
-  .user-card:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .user-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-  }
-  
-  .user-detail {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .detail-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 80%;
-    max-width: 500px;
-  }
-  
-  .detail-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .detail-header h2 {
-    margin: 0;
-  }
-  
-  .edit-button,
-  .delete-button {
-    background-color: #f44336;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-right: 10px;
-  }
-  
-  .edit-button {
-    background-color: #4CAF50;
-  }
-  
-  .edit-button:hover,
-  .delete-button:hover {
-    opacity: 0.8;
-  }
-  
+  padding: 20px;
+}
+
+.user-list h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.user-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  width: 200px;
+  transition: transform 0.2s;
+}
+
+.user-card:hover {
+  transform: scale(1.05);
+}
+
+.user-card p {
+  margin: 10px 0;
+}
+
+.details-button,
+.delete-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+}
+
+.details-button:hover,
+.delete-button:hover {
+  background-color: #2980b9;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}

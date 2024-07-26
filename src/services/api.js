@@ -37,3 +37,9 @@ export const deletePayment = (id) => api.delete(`/payments/${id}`);
 export const createStock = (stock) => api.post('/stocks', stock);
 export const getStock = (id) => api.get(`/stocks/${id}`);
 export const updateStock = (id, stock) => api.put(`/stocks/${id}`, stock);
+
+export const getStockStats = () => axios.get('/api/stats/stock/monthly');
+
+export const getUserRegistrationStats = async () => {
+  return await axios.get('/api/stats/user-registrations');
+};

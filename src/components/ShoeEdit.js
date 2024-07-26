@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getShoe, updateShoe } from '../services/api';
-import './ShoeEdit.css'; // Uncomment if you have a CSS file
+import './ShoeEdit.css';
 
 const ShoeEdit = () => {
   const { id } = useParams();
@@ -79,24 +79,27 @@ const ShoeEdit = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="name" value={shoe.name} onChange={handleChange} placeholder="Name" required />
-      <input type="text" name="brand" value={shoe.brand} onChange={handleChange} placeholder="Brand" required />
-      <input type="number" name="price" value={shoe.price} onChange={handleChange} placeholder="Price" required />
-      <input type="text" name="colors" value={shoe.colors} onChange={handleChange} placeholder="Colors" required />
-      <input type="text" name="imageUrl" value={shoe.imageUrl} onChange={handleChange} placeholder="Image URL" required />
-      <input type="text" name="discriptions" value={shoe.discriptions} onChange={handleChange} placeholder="Descriptions" required />
+    <div className="shoe-edit-container">
+      <form className="shoe-edit-form" onSubmit={handleSubmit}>
+        <h2>Edit Shoe</h2>
+        <input type="text" name="name" value={shoe.name} onChange={handleChange} placeholder="Name" required />
+        <input type="text" name="brand" value={shoe.brand} onChange={handleChange} placeholder="Brand" required />
+        <input type="number" name="price" value={shoe.price} onChange={handleChange} placeholder="Price" required />
+        <input type="text" name="colors" value={shoe.colors} onChange={handleChange} placeholder="Colors" required />
+        <input type="text" name="imageUrl" value={shoe.imageUrl} onChange={handleChange} placeholder="Image URL" required />
+        <input type="text" name="discriptions" value={shoe.discriptions} onChange={handleChange} placeholder="Descriptions" required />
 
-      <h3>Stocks</h3>
-      {shoe.stocks.map((stock, index) => (
-        <div key={index}>
-          <input type="number" name="size" value={stock.size} onChange={(e) => handleStockChange(index, e)} placeholder="Size" required />
-          <input type="number" name="quantity" value={stock.quantity} onChange={(e) => handleStockChange(index, e)} placeholder="Quantity" required />
-        </div>
-      ))}
-      <button type="button" onClick={handleAddStock}>Add Stock</button>
-      <button type="submit">Update Product</button>
-    </form>
+        <h3>Stocks</h3>
+        {shoe.stocks.map((stock, index) => (
+          <div key={index} className="stock-group">
+            <input type="number" name="size" value={stock.size} onChange={(e) => handleStockChange(index, e)} placeholder="Size" required />
+            <input type="number" name="quantity" value={stock.quantity} onChange={(e) => handleStockChange(index, e)} placeholder="Quantity" required />
+          </div>
+        ))}
+        <button type="button" className="add-stock-button" onClick={handleAddStock}>Add Stock</button>
+        <button type="submit" className="update-button">Update Product</button>
+      </form>
+    </div>
   );
 };
 

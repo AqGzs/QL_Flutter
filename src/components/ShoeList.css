@@ -1,6 +1,4 @@
 .shoe-list {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 20px;
 }
 
@@ -8,54 +6,72 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
 }
 
 .add-button {
-  padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #3498db;
   color: white;
+  padding: 10px 20px;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .add-button:hover {
-  background-color: #0056b3;
+  background-color: #2980b9;
 }
 
 .search-bar {
-  margin: 20px 0;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .shoe-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
 
 .shoe-card {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 5px;
-  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
   text-align: center;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.shoe-card:hover {
+  transform: scale(1.05);
 }
 
 .shoe-card img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
 .shoe-detail-card {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  top: 5%;
+  right: 10%;
+  width: 350px;
+  max-width: 90%;
   background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  border: 1px solid #dee2e6;
-  border-radius: 5px;
-  width: 300px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 
@@ -63,69 +79,51 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 }
 
-.detail-content {
-  text-align: center;
-}
-
-.detail-content img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 20px;
-}
-
+.close-button,
+.view-details-button,
 .edit-button,
-.delete-button{
-  padding: 10px 20px;
-  margin: 10px;
-  background-color: #007bff;
+.delete-button {
+  background-color: #3498db;
   color: white;
+  padding: 5px 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  text-decoration: none; /* Added to remove underline */
-  display: inline-block; /* Ensures the button sizing is correct */
-}
-.view-details-button {
-  padding: 1px 5%;
-  margin: 30px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  text-decoration: none; /* Added to remove underline */
-  display: inline-block; /* Ensures the button sizing is correct */
+  margin-top: 10px;
 }
 
+.close-button:hover,
+.view-details-button:hover,
 .edit-button:hover,
-.delete-button:hover,
-.view-details-button:hover {
-  background-color: #0056b3;
+.delete-button:hover {
+  background-color: #2980b9;
 }
 
 .delete-button {
-  background-color: #dc3545;
+  background-color: #e74c3c;
 }
 
 .delete-button:hover {
-  background-color: #c82333;
+  background-color: #c0392b;
 }
 
-.close-button {
-  padding: 10px 20px;
-  margin: 10px;
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none; /* Added to remove underline */
-  display: inline-block; /* Ensures the button sizing is correct */
+.view-details-button {
+  background-color: #2ecc71;
 }
 
-.close-button:hover {
-  background-color: #5a6268;
+.view-details-button:hover {
+  background-color: #27ae60;
+}
+
+.detail-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.detail-content h3,
+.detail-content p {
+  margin: 5px 0;
 }

@@ -6,6 +6,7 @@ import './ShoeList.css';
 const ShoeList = () => {
   const [shoes, setShoes] = useState([]);
   const [selectedShoe, setSelectedShoe] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchShoes();
@@ -29,6 +30,15 @@ const ShoeList = () => {
     setSelectedShoe(null);
   };
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredShoes = shoes.filter(shoe =>
+    shoe.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    shoe.brand.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="shoe-list">
       <div className="header">
@@ -36,10 +46,10 @@ const ShoeList = () => {
         <Link to="/shoes/new" className="add-button">Add New Product</Link>
       </div>
       <div className="search-bar">
-        <input type="text" placeholder="Search product..." />
+        <input type="text" placeholder="Search product..." value={searchTerm} onChange={handleSearch} />
       </div>
       <div className="shoe-grid">
-        {shoes.map(shoe => (
+        {filteredShoes.map(shoe => (
           <div key={shoe._id} className="shoe-card" onClick={() => handleSelectShoe(shoe)}>
             <img src={shoe.imageUrl} alt={shoe.name} />
             <h3>{shoe.name}</h3>

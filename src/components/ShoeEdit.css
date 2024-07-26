@@ -1,38 +1,67 @@
-.shoe-form {
-    padding: 20px;
-  }
-  
-  .shoe-form input {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .shoe-form button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .shoe-form h3 {
-    margin-top: 20px;
-  }
-  
-  .shoe-form div {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .shoe-form div button {
-    background-color: #f44336;
-    padding: 5px 10px;
-  }
-  
+.shoe-edit-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shoe-edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.shoe-edit-form h3 {
+  margin-top: 20px;
+}
+
+.shoe-edit-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.shoe-edit-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.shoe-edit-form button:hover {
+  background-color: #2980b9;
+}
+
+.stock-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stock-group input {
+  flex: 1;
+}
+
+.add-stock-button {
+  background-color: #2ecc71;
+}
+
+.add-stock-button:hover {
+  background-color: #27ae60;
+}
+
+.update-button {
+  background-color: #3498db;
+}
+
+.update-button:hover {
+  background-color: #2980b9;
+}

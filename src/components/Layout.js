@@ -9,7 +9,7 @@ const Layout = () => {
         <div className="logo">F5SHOESSTORE</div>
         <nav className="nav">
           <NavLink to="/dashboard" className="nav-link">Dashboard</NavLink>
-          <NavLink to="/logout" className="nav-link">Logout</NavLink>
+          <NavLink to="/logout" className="nav-link" activeClassName="active">Logout</NavLink>
         </nav>
         <div className="welcome">Welcome admin <img src="/profile-img.png" alt="profile" className="profile-img" /></div>
       </header>
