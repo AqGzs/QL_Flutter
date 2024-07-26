@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { createShoe, createStock, getShoe, getStock, updateShoe, updateStock } from '../services/api';
+import './ShoeEdit.css';
 
 const ShoeForm = () => {
-  const [shoe, setShoe] = useState({ name: '', brand: '', price: '', stocks: [{ size: '', quantity: '' }], colors: '', imageUrl: '', discriptions: '' });
+  const [shoe, setShoe] = useState({ name: '', brand: '', price: '', stocks: [{ size: '', quantity: '' }], colors: '', imageUrl: '', descriptions: '' });
   const [errors, setErrors] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ const ShoeForm = () => {
     if (isNaN(parseFloat(shoe.price))) newErrors.price = "Price must be a number.";
     if (!shoe.colors) newErrors.colors = "Colors are required.";
     if (!shoe.imageUrl) newErrors.imageUrl = "Image URL is required.";
-    if (!shoe.discriptions) newErrors.discriptions = "Descriptions are required.";
+    if (!shoe.descriptions) newErrors.descriptions = "Descriptions are required.";
 
     shoe.stocks.forEach((stock, index) => {
       if (!stock.size) newErrors[`stocks[${index}].size`] = "Size is required.";
@@ -92,7 +93,7 @@ const ShoeForm = () => {
       });
 
       const stockResponses = await Promise.all(stockPromises);
-      updatedShoe.stocks = stockResponses.map(stockRes => stockRes.data._id);
+      updatedShoe.stocks = stockResponses.map(stockRes => stockRes.data);
 
       console.log("Payload being sent to the server:", JSON.stringify(updatedShoe, null, 2));
 
@@ -119,8 +120,8 @@ const ShoeForm = () => {
       {errors.colors && <div style={{ color: 'red' }}>{errors.colors}</div>}
       <input type="text" name="imageUrl" value={shoe.imageUrl} onChange={handleChange} placeholder="Image URL" required />
       {errors.imageUrl && <div style={{ color: 'red' }}>{errors.imageUrl}</div>}
-      <input type="text" name="discriptions" value={shoe.discriptions} onChange={handleChange} placeholder="Descriptions" required />
-      {errors.discriptions && <div style={{ color: 'red' }}>{errors.discriptions}</div>}
+      <input type="text" name="descriptions" value={shoe.descriptions} onChange={handleChange} placeholder="Descriptions" required />
+      {errors.descriptions && <div style={{ color: 'red' }}>{errors.descriptions}</div>}
       <h3>Stocks</h3>
       {shoe.stocks.map((stock, index) => (
         <div key={index}>
