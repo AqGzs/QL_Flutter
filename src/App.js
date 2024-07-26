@@ -6,6 +6,7 @@ import Login from './components/Login';
 import OrderDetail from './components/OrderDetail';
 import OrderList from './components/OrderList';
 import ShoeDelete from './components/ShoeDelete';
+import ShoeDetail from './components/ShoeDetail';
 import ShoeEdit from './components/ShoeEdit';
 import ShoeForm from './components/ShoeForm';
 import ShoeList from './components/ShoeList';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/shoes/new" element={<ShoeForm />} />
           <Route path="/shoes/edit/:id" element={<ShoeEdit />} />
           <Route path="/shoes/delete/:id" element={<ShoeDelete />} />
+          <Route path="/shoe/:id" element={<ShoeDetail />} /> 
           <Route path="/orders" element={<OrderList />} />
           <Route path="/orders/:id" element={<OrderDetail />} />
           <Route path="/users" element={<UserList />} />

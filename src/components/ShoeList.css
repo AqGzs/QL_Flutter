@@ -1,112 +1,131 @@
-/* ShoeList.css */
 .shoe-list {
-    padding: 20px;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .add-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .search-bar {
-    margin: 20px 0;
-  }
-  
-  .search-bar input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  .categories {
-    margin-bottom: 20px;
-  }
-  
-  .categories button {
-    background-color: transparent;
-    border: none;
-    padding: 10px 15px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .categories button:hover {
-    background-color: #ddd;
-  }
-  
-  .shoe-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .shoe-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: calc(33.333% - 20px);
-    box-sizing: border-box;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  .shoe-card img {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .shoe-detail {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 300px;
-    height: 100%;
-    background-color: white;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    overflow-y: auto;
-  }
-  
-  .detail-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .detail-content {
-    text-align: center;
-  }
-  
-  .detail-content img {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .edit-button, .delete-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px;
-  }
-  
-  .delete-button {
-    background-color: #f44336;
-  }
-  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+.search-bar {
+  margin: 20px 0;
+}
+
+.shoe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.shoe-card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.shoe-card img {
+  width: 100%;
+  height: auto;
+}
+
+.shoe-detail-card {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.detail-content {
+  text-align: center;
+}
+
+.detail-content img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.edit-button,
+.delete-button{
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* Added to remove underline */
+  display: inline-block; /* Ensures the button sizing is correct */
+}
+.view-details-button {
+  padding: 1px 5%;
+  margin: 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none; /* Added to remove underline */
+  display: inline-block; /* Ensures the button sizing is correct */
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.view-details-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.close-button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* Added to remove underline */
+  display: inline-block; /* Ensures the button sizing is correct */
+}
+
+.close-button:hover {
+  background-color: #5a6268;
+}

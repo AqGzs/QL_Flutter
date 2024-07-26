@@ -32,7 +32,6 @@ const UserList = () => {
     <div className="user-list">
       <div className="header">
         <h1>Users</h1>
-        <Link to="/users/new" className="add-button">Add New User</Link>
       </div>
       <div className="user-grid">
         {users.map(user => (
