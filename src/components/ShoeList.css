@@ -110,7 +110,7 @@
 }
 
 .view-details-button {
-  background-color: #2ecc71;
+  background-color:  #3498db;
 }
 
 .view-details-button:hover {
@@ -126,4 +126,27 @@
 .detail-content h3,
 .detail-content p {
   margin: 5px 0;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
 }

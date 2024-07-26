@@ -7,6 +7,8 @@ const ShoeList = () => {
   const [shoes, setShoes] = useState([]);
   const [selectedShoe, setSelectedShoe] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 11;
 
   useEffect(() => {
     fetchShoes();
@@ -39,6 +41,16 @@ const ShoeList = () => {
     shoe.brand.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const indexOfLastShoe = currentPage * itemsPerPage;
+  const indexOfFirstShoe = indexOfLastShoe - itemsPerPage;
+  const currentShoes = filteredShoes.slice(indexOfFirstShoe, indexOfLastShoe);
+
+  const totalPages = Math.ceil(filteredShoes.length / itemsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <div className="shoe-list">
       <div className="header">
@@ -49,7 +61,7 @@ const ShoeList = () => {
         <input type="text" placeholder="Search product..." value={searchTerm} onChange={handleSearch} />
       </div>
       <div className="shoe-grid">
-        {filteredShoes.map(shoe => (
+        {currentShoes.map(shoe => (
           <div key={shoe._id} className="shoe-card" onClick={() => handleSelectShoe(shoe)}>
             <img src={shoe.imageUrl} alt={shoe.name} />
             <h3>{shoe.name}</h3>
@@ -77,6 +89,17 @@ const ShoeList = () => {
           </div>
         </div>
       )}
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
+            className={currentPage === index + 1 ? 'active' : ''}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

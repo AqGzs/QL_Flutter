@@ -20,7 +20,9 @@ const OrderList = () => {
 
   return (
     <div className="order-list">
-      <h1>Orders</h1>
+      <header className="header">
+        <h1>Orders</h1>
+      </header>
       {orders.length === 0 ? (
         <p className="no-orders">No orders found.</p>
       ) : (

@@ -14,15 +14,21 @@ const Layout = () => {
         <div className="welcome">Welcome admin <img src="/profile-img.png" alt="profile" className="profile-img" /></div>
       </header>
       <div className="container">
-        <aside className="sidebar">
-          <NavLink to="/shoes" className="sidebar-link" activeClassName="active">Shoes</NavLink>
-          <NavLink to="/orders" className="sidebar-link" activeClassName="active">Orders</NavLink>
-          <NavLink to="/users" className="sidebar-link" activeClassName="active">Users</NavLink>
-        </aside>
-        <main className="main">
-          <Outlet />
-        </main>
-      </div>
+      <aside className="sidebar">
+        <NavLink to="/shoes" className="sidebar-link" activeClassName="active">
+          Shoes
+        </NavLink>
+        <NavLink to="/orders" className="sidebar-link" activeClassName="active">
+          Orders
+        </NavLink>
+        <NavLink to="/users" className="sidebar-link" activeClassName="active">
+          Users
+        </NavLink>
+      </aside>
+      <main className="main">
+        <Outlet />
+      </main>
+    </div>
     </div>
   );
 };
